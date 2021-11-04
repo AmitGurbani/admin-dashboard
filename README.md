@@ -1,4 +1,4 @@
-# cloudworx-admin
+# admin-dashboard
 
 ## Project setup
 ```
