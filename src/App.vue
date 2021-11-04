@@ -1,17 +1,55 @@
 <template>
   <v-app class="app">
-    <NavigationDrawer mini-variant>
-      <LeftNavigationContent />
-    </NavigationDrawer>
-    <v-main>
-      <Toolbar />
-      <v-container>
-        <Dashboard />
-      </v-container>
-    </v-main>
-    <NavigationDrawer right color="#e3eaf0">
-      <RightNavigationContent class="px-3" />
-    </NavigationDrawer>
+    <template v-if="!loginDialog">
+      <NavigationDrawer mini-variant>
+        <LeftNavigationContent />
+      </NavigationDrawer>
+      <v-main>
+        <Toolbar />
+        <v-container>
+          <Dashboard />
+        </v-container>
+      </v-main>
+      <NavigationDrawer right color="#e3eaf0">
+        <RightNavigationContent class="px-3" />
+      </NavigationDrawer>
+    </template>
+    <v-dialog v-model="loginDialog" persistent max-width="600px">
+      <v-card>
+        <v-card-title>Login</v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col cols="12">
+                <v-text-field
+                  hide-details
+                  prepend-icon="mdi-email"
+                  label="Email"
+                  v-model="email"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  hide-details
+                  prepend-icon="mdi-eye"
+                  label="Password"
+                  v-model="password"
+                  type="password"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col class="text-center">
+                <div class="error--text" v-if="invalidCredentials">
+                  Invalid email or password
+                </div>
+                <v-btn color="primary" @click="verifyUser()">Submit</v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
@@ -32,7 +70,23 @@ import RightNavigationContent from "./components/RightNavigationContent.vue";
     Toolbar,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  loginDialog = true;
+  email = "";
+  password = "";
+  invalidCredentials = false;
+
+  verifyUser() {
+    if (
+      this.email === "admin@cloudworx.com" &&
+      this.password === "mysecurepassword"
+    ) {
+      this.loginDialog = false;
+    } else {
+      this.invalidCredentials = true;
+    }
+  }
+}
 </script>
 <style lang="scss">
 .app {
