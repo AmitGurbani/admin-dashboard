@@ -78,7 +78,7 @@ export default class App extends Vue {
 
   verifyUser() {
     if (
-      this.email === "admin@cloudworx.com" &&
+      this.email === "admin@cloudworx.ai" &&
       this.password === "securepassword"
     ) {
       this.email = "";
