@@ -46,7 +46,7 @@ export default class UserProfileActivityCard extends Vue {
     },
   ];
   chartdata = {
-    labels: [],
+    labels: ["In Progress", "To Do", "Complete"],
     datasets: [
       {
         label: "",
@@ -59,6 +59,9 @@ export default class UserProfileActivityCard extends Vue {
     responsive: true,
     maintainAspectRatio: false,
     cutoutPercentage: 80,
+    legend: {
+      display: false,
+    },
   };
 }
 </script>
