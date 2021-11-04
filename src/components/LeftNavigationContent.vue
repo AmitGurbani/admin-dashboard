@@ -6,7 +6,25 @@
 
     <v-list class="mt-2">
       <v-list-item v-for="item in items" :key="item.title" link>
-        <v-icon :color="item.selected ? 'primary' : ''">{{ item.icon }}</v-icon>
+        <v-tooltip top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon
+              v-bind="attrs"
+              v-on="on"
+              :color="item.selected ? 'primary' : ''"
+              >{{ item.icon }}</v-icon
+            >
+          </template>
+          <span>{{ item.title }}</span>
+        </v-tooltip>
+      </v-list-item>
+      <v-list-item link @click="$emit('logout')">
+        <v-tooltip top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon v-bind="attrs" v-on="on">mdi-logout-variant</v-icon>
+          </template>
+          <span>Logout</span>
+        </v-tooltip>
       </v-list-item>
     </v-list>
   </div>

@@ -2,7 +2,7 @@
   <v-app class="app">
     <template v-if="!loginDialog">
       <NavigationDrawer mini-variant>
-        <LeftNavigationContent />
+        <LeftNavigationContent @logout="loginDialog = true" />
       </NavigationDrawer>
       <v-main>
         <Toolbar />
@@ -79,8 +79,10 @@ export default class App extends Vue {
   verifyUser() {
     if (
       this.email === "admin@cloudworx.com" &&
-      this.password === "mysecurepassword"
+      this.password === "securepassword"
     ) {
+      this.email = "";
+      this.password = "";
       this.loginDialog = false;
     } else {
       this.invalidCredentials = true;
