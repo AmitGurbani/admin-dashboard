@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar dense color="elevation-0" class="app pt-8">
+  <v-toolbar color="elevation-0" class="app pl-4" height="78">
     <Search />
 
     <v-spacer></v-spacer>
@@ -8,10 +8,15 @@
       <Badge :icon="item.icon" :content="item.content" />
     </v-btn>
 
-    <UserAvatar src="https://randomuser.me/api/portraits/men/85.jpg" />
+    <UserAvatar
+      class="ml-6"
+      src="https://randomuser.me/api/portraits/men/34.jpg"
+    />
     <v-list-item two-line style="flex: none">
       <v-list-item-content>
-        <v-list-item-title>Madison Eve</v-list-item-title>
+        <v-list-item-title class="font-weight-medium"
+          >Madison Eve</v-list-item-title
+        >
         <v-list-item-subtitle>Admin</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>

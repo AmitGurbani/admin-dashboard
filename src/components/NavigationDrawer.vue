@@ -5,7 +5,7 @@
     :right="right"
     permanent
     mini-variant-width="90"
-    width="400"
+    width="315"
     class="pt-4"
     :color="color"
   >

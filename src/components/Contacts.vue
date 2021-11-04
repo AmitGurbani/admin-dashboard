@@ -2,11 +2,11 @@
   <div>
     <div class="d-flex">
       <h1>Contacts</h1>
-      <v-btn class="ml-auto" text>View</v-btn>
+      <v-btn class="ml-auto" text color="primary">View</v-btn>
     </div>
     <v-row no-gutters class="mt-4">
       <v-col v-for="contact in contacts" :key="contact">
-        <UserAvatar :src="contact" :size="56" />
+        <UserAvatar :src="contact" :size="50" />
       </v-col>
     </v-row>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <v-badge :content="content" :value="value" color="green" overlap>
+  <v-badge :content="content" :value="value" overlap>
     <v-icon> {{ icon }} </v-icon>
   </v-badge>
 </template>

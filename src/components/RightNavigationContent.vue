@@ -27,6 +27,6 @@ export default class RightNavigationContent extends Vue {}
 
 <style scoped lang="scss">
 div > *:not(:last-child) {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 </style>

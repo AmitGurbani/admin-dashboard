@@ -1,20 +1,12 @@
 <template>
   <div>
-    <v-list-item class="ml-n3">
-      <v-list-item-avatar>
-        <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
-      </v-list-item-avatar>
+    <v-list-item>
+      <UserAvatar src="https://randomuser.me/api/portraits/men/34.jpg" />
     </v-list-item>
 
-    <v-list class="mt-4">
+    <v-list class="mt-2">
       <v-list-item v-for="item in items" :key="item.title" link>
-        <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
-
-        <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
+        <v-icon :color="item.selected ? 'primary' : ''">{{ item.icon }}</v-icon>
       </v-list-item>
     </v-list>
   </div>
@@ -22,11 +14,16 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import UserAvatar from "./UserAvatar.vue";
 
-@Component
+@Component({
+  components: {
+    UserAvatar,
+  },
+})
 export default class LeftNavigationContent extends Vue {
   items = [
-    { title: "Home", icon: "mdi-home-outline" },
+    { title: "Home", icon: "mdi-home-outline", selected: true },
     { title: "Messages", icon: "mdi-email-outline" },
     { title: "Users", icon: "mdi-account-group-outline" },
     { title: "Revenue", icon: "mdi-currency-usd" },

@@ -5,6 +5,7 @@
     :label="label"
     :prepend-inner-icon="icon"
     :style="style"
+    hide-details
   ></v-text-field>
 </template>
 

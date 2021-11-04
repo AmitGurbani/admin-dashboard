@@ -2,11 +2,7 @@
   <div>
     <h1>Recent Activity</h1>
     <v-list three-line>
-      <v-list-item
-        v-for="(activity, i) in activities"
-        :key="i"
-        class="pl-0 py-2"
-      >
+      <v-list-item v-for="(activity, i) in activities" :key="i" class="pl-0">
         <v-list-item-avatar class="mx-n2 mt-2">
           <v-icon :color="activity.color"> mdi-circle </v-icon>
         </v-list-item-avatar>
@@ -14,8 +10,10 @@
         <v-list-item-content class="pl-3">
           <v-list-item-title>
             <div class="d-flex">
-              <span>{{ activity.title }}</span>
-              <span class="ml-auto">{{ activity.duration }}</span>
+              <span class="font-weight-bold">{{ activity.title }}</span>
+              <span class="ml-auto subtitle-2 font-weight-regular">{{
+                activity.duration
+              }}</span>
             </div>
           </v-list-item-title>
           <v-list-item-subtitle>{{ activity.subtitle }}</v-list-item-subtitle>

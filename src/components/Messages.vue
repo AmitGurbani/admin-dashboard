@@ -2,14 +2,16 @@
   <div>
     <div class="d-flex">
       <h1>Messages</h1>
-      <v-btn class="ml-auto" text>View</v-btn>
+      <v-btn class="ml-auto" text color="primary">View</v-btn>
     </div>
     <v-list two-line>
-      <v-list-item v-for="(message, i) in messages" :key="i" class="pl-0 py-2">
-        <UserAvatar :src="message.avatar" :size="56" />
+      <v-list-item v-for="(message, i) in messages" :key="i" class="pl-0">
+        <UserAvatar :src="message.avatar" :size="50" />
 
         <v-list-item-content class="pl-3">
-          <v-list-item-title>{{ message.title }}</v-list-item-title>
+          <v-list-item-title class="font-weight-bold">{{
+            message.title
+          }}</v-list-item-title>
           <v-list-item-subtitle>{{ message.subtitle }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>

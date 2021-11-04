@@ -1,21 +1,23 @@
 <template>
   <v-app class="app">
     <NavigationDrawer mini-variant>
-      <LeftNavigationContent class="pl-6" />
+      <LeftNavigationContent />
     </NavigationDrawer>
     <v-main>
       <Toolbar />
-      <HelloWorld />
+      <v-container>
+        <Dashboard />
+      </v-container>
     </v-main>
     <NavigationDrawer right color="#e3eaf0">
-      <RightNavigationContent class="px-8" />
+      <RightNavigationContent class="px-3" />
     </NavigationDrawer>
   </v-app>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
+import Dashboard from "./pages/dashboard.vue";
 import NavigationDrawer from "./components/NavigationDrawer.vue";
 import Toolbar from "./components/Toolbar.vue";
 import LeftNavigationContent from "./components/LeftNavigationContent.vue";
@@ -23,7 +25,7 @@ import RightNavigationContent from "./components/RightNavigationContent.vue";
 
 @Component({
   components: {
-    HelloWorld,
+    Dashboard,
     LeftNavigationContent,
     NavigationDrawer,
     RightNavigationContent,
@@ -35,5 +37,17 @@ export default class App extends Vue {}
 <style lang="scss">
 .app {
   background-color: #f1f6fa !important;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 </style>
